@@ -45,14 +45,14 @@ def pre_process_image(
   # TensorFlow.
   # tf.image.decode_jpeg(tf.io.encode_jpeg(image), channels=3)
 
-  image = jax.image.resize(
-      image,
-      shape=image_shape,
-      method="bilinear",
-      antialias=True,
-  )
-  image = _normalize_images(image)
-  image = jnp.clip(image, -1, 1)
+  # image = jax.image.resize(
+  #     image,
+  #     shape=image_shape,
+  #     method="bilinear",
+  #     antialias=True,
+  # )
+  # image = _normalize_images(image)
+  # image = jnp.clip(image, -1, 1)
   return image
 
 
