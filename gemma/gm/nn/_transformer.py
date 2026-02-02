@@ -180,7 +180,6 @@ class Transformer(nn.Module):
   # The function accepts/returns aribtrary batch shape, but inside the
   # function, the batch dimension is flattened to a single dimension.
   @_jax_utils.flatten_unflatten_batch_dim()
-  @typechecked
   def __call__(  # pytype: disable=signature-mismatch
       self,
       tokens: Int['*B L'],
@@ -327,7 +326,6 @@ class Transformer(nn.Module):
     )
     return kd.sharding.with_sharding_constraint(cache, sharding)
 
-  @typechecked
   def _encode_and_get_inputs(
       self,
       *,
@@ -385,7 +383,6 @@ class Transformer(nn.Module):
         inputs_mask=inputs.inputs_mask,
     )
 
-  @typechecked
   def _merge_mm_embeddings(
       self,
       *,
